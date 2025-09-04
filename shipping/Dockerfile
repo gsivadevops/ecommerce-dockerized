@@ -4,7 +4,7 @@ FROM maven
 WORKDIR /opt/server
 # copying the code
 COPY pom.xml .
-COPY src /opt/server
+COPY src /opt/server/src
 # installing maven dependencies
 RUN mvn clean 
 # moving the created jar - shipping-1.0.jar, form target folder to /opt/server with shipping.jar
@@ -15,3 +15,4 @@ ENV MONGO="true" \
     DB_HOST="mysql"
 # to start the container and to login    
 CMD ["java", "-jar", "shipping.jar"]    
+
