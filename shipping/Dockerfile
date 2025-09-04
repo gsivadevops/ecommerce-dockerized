@@ -11,7 +11,7 @@ RUN mvn clean
 RUN mv /opt/server/target/shipping-1.0.jar /opt/server/shipping.jar
 # environment (systemd) setup
 ENV MONGO="true" \
-    CART_ENDPOINT="cart:8080"
+    CART_ENDPOINT="cart:8080" \
     DB_HOST="mysql"
 # to start the container and to login    
 CMD ["java", "-jar", "shipping.jar"]    
