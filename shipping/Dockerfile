@@ -3,7 +3,7 @@ FROM maven
 #creating the directory to copy the code
 WORKDIR /opt/server
 # copying the code
-COPY pom.xml
+COPY pom.xml .
 COPY src /opt/server
 # installing maven dependencies
 RUN mvn clean 
