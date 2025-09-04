@@ -8,7 +8,7 @@ COPY src /opt/server
 # installing maven dependencies
 RUN mvn clean 
 # moving the created jar - shipping-1.0.jar, form target folder to /opt/server with shipping.jar
-mv /opt/server/target/shipping-1.0.jar /opt/server/shipping.jar
+RUN mv /opt/server/target/shipping-1.0.jar /opt/server/shipping.jar
 # environment (systemd) setup
 ENV MONGO="true" \
     CART_ENDPOINT="cart:8080"
