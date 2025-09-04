@@ -1,0 +1,5 @@
+networks:
+  default:
+    driver: bridge
+    name: roboshop
+    # external: true # if network is already created means we can uncomment this line
