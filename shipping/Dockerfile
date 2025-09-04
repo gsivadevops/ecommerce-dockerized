@@ -6,7 +6,7 @@ WORKDIR /opt/server
 COPY pom.xml .
 COPY src /opt/server/src
 # installing maven dependencies
-RUN mvn clean 
+RUN mvn clean package
 # moving the created jar - shipping-1.0.jar, form target folder to /opt/server with shipping.jar
 RUN mv /opt/server/target/shipping-1.0.jar /opt/server/shipping.jar
 # environment (systemd) setup
