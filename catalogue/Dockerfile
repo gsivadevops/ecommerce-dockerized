@@ -11,4 +11,4 @@ RUN npm install
 ENV MONGO="true" \
     MONGO_URL="mongodb://mongodb:27017/catalogue"
 # to start the container and to login    
-CMD["node", "server.js"]    
+CMD ["node", "server.js"]    
