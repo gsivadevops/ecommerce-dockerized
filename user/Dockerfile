@@ -13,3 +13,4 @@ ENV MONGO="true" \
     MONGO_URL="mongodb://mongodb:27017/users"
 # to start the container and to login    
 CMD ["node", "server.js"]    
+
