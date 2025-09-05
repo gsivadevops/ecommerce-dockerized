@@ -19,7 +19,7 @@ services:
     image: gsivadvops/user:v1
     container_name: user
     depends_on: 
-    - mongoddb
+    - mongodb
     - redis
   cart:
     image: gsivadvops/cart:v1
