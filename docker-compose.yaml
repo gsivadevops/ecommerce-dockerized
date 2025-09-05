@@ -3,3 +3,43 @@ networks:
     driver: bridge
     name: roboshop
     # external: true # if network is already created means we can uncomment this line
+services:
+  mongodb:
+    image: gsivadvops/mongodb:v1
+    container_name: mongodb   
+  catalogue:
+    image: gsivadvops/catalogue:v1
+    container_name: catalogue
+    depends_on:
+    - mongodb
+  redis:
+    image: gsivadvops/redis:v1
+    container_name: redis
+  user: 
+    image: gsivadvops/user:v1
+    container_name: user
+    depends_on: 
+    - mongoddb
+    - redis
+  cart:
+    image: gsivadvops/cart:v1
+    container_name: cart
+    depends_on:
+    - catalogue
+    - redis
+  mysql:
+    image: gsivadvops/mysql:v1
+    container_name: mysql  
+  shipping:
+    image: gsivadvops/shipping:v1
+    container_name: shipping
+    depends_on:
+    - mysql
+    - cart 
+  rabbitmq:
+    image: rabbitmq:3
+    container_name: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: roboshop
+      RABBITMQ_DEFAULT_PASS: roboshop123
+          
