@@ -1,7 +1,7 @@
 #installing node over official image
 #FROM node:20
-#minimal official image
-FROM node:20:alpine3.21
+# minimal official image
+FROM node:20-alpine3.21
 #creating the directory to copy the code
 WORKDIR /opt/server
 # copying the code
