@@ -7,13 +7,13 @@ volumes:
   mongodb:
   redis:
   mysql:
-  rabbitmq:    
+  rabbitmq: # docker volume create rabbitmq    
 services:
   mongodb:
     image: gsivadvops/mongodb:v1
     container_name: mongodb  
-  volumes: 
-  - mongodb: /data/db #mounting the volume   
+    volumes:
+    - mongodb:/data/db   
   catalogue:
     image: gsivadvops/catalogue:v1
     container_name: catalogue
@@ -22,8 +22,8 @@ services:
   redis:
     image: redis:7.0
     container_name: redis
-    volumes: 
-    - redis: /data #mounting the volume 
+    volumes:
+    - redis:/data #mounting the volume 
   user: 
     image: gsivadvops/user:v1
     container_name: user
@@ -39,8 +39,8 @@ services:
   mysql:
     image: gsivadvops/mysql:v1
     container_name: mysql  
-    volumes: 
-    - mongodb: /var/lib/mysql #mounting the volume 
+    volumes:
+    - mysql:/var/lib/mysql #mounting the volume 
   shipping:
     image: gsivadvops/shipping:v1
     container_name: shipping
@@ -53,8 +53,8 @@ services:
     environment:
       RABBITMQ_DEFAULT_USER: roboshop
       RABBITMQ_DEFAULT_PASS: roboshop123
-    volumes: 
-    - mongodb: /var/lib/rabbitmq #mounting the volume    
+    volumes:
+    - rabbitmq:/var/lib/rabbitmq #mounting the volume    
   payment:
     image: gsivadvops/payment:v1
     container_name: payment
