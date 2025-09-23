@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# checking the file exist or not to access the mysql secret from secrets manager
 if [ -f /tmp/mysql_root_password.txt ]; then
     PASSWORD=$(cat /tmp/mysql_root_password.txt)
     echo "Accessed Root password"
